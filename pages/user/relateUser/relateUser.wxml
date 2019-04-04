@@ -1,0 +1,15 @@
+<view 
+    class = "userCard"
+    wx:for = "{{ userCrads }}"
+    wx:key = "*this"
+    bindtap = 'toDetail'
+  >
+    <view class = "avater_header">
+      <image class = "avater_img" src = "../../image/defaultAvater.png" >
+      </image>
+      <view class = "headerView_left">
+        <text class = "nickNameText"> {{ item.nickName }} </text>
+        <text class = "subTitle"> {{ item.subTitle }} </text>
+      </view>
+    </view>
+  </view>

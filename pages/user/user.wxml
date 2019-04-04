@@ -1,0 +1,102 @@
+<!-- header -->
+<view class = 'header_view'>
+  <view class = 'header_top'>
+    <view class = 'setting_btn' bindtap = 'settingAction'>
+    </view>
+    <button class = 'new_trend' bindtap = 'newTrend'>
+    </button>
+  </view>
+
+  <view class = 'header_bottom'>
+    <view class = 'avater_view'>
+    </view>
+    <view class = 'nickName'>
+      {{ nickName }}
+    </view>
+    <view class = 'signature'>
+      {{ signature }}
+    </view> 
+  </view>
+</view>
+
+<!-- tab -->
+<view class="tab-container" >
+  <view class="tab-bar">
+    <view 
+      class = "tab"
+      wx:for = "{{ tabs }}" 
+      wx:key = "id" 
+      data-index = "{{ index }}" 
+      bindtap = "handlerTabTap" 
+      style = "width: {{ tabContainer.windowWidth / tabs.length }}px"
+    >
+      <text class = 'tabName'> {{ item }} </text>
+      <text class = 'tabNumber'> {{ tabsNumber[index] }} </text>
+    </view>
+
+    <view 
+      class = "tab_number"
+      style = "width: {{ tabContainer.lineWidth }}px; left: {{ tabContainer.offset / tabs.length }}px"
+    >
+    </view>
+  </view>
+</view>
+
+<!-- 滚动视图 -->
+<scroll-view class="mainScroll" scroll-y="true" >
+  <view 
+    class = "friendTimeView"
+    wx:for = "{{ friendTimes }}"
+    wx:key = "*this"
+  >
+    <view class = "avater_header">
+      <image class = "avater_img" src = "../image/defaultAvater.png" >
+      </image>
+      <view class = "headerView_left">
+        <text class = "nickNameText"> {{ item.nickName }} </text>
+        <text class = "createDateText"> {{ item.createDate }} </text>
+      </view>
+    </view>
+
+    <!-- 文字view -->
+    <view class = "content_text" >
+      {{ item.contentText }}
+    </view>
+
+    <!-- 图片view -->
+    <block 
+      wx:if = "{{ item.friendNeedImg }}"
+    >
+      <view class = 'content_image'>
+        <image src = '{{ item.contentImage }}' >
+        </image>
+      </view>
+    </block>
+
+    <!-- 足部view -->
+    <view
+      class = 'time_footer'  
+    >
+      <button
+        open-type = 'share'
+        class = 'share_btn'
+        bindtap = 'shareAction'
+        form-type = 'share' 
+        style = "background-image:url(../image/share.png);" 
+      >
+      </button>
+      <image
+        class = 'comment_btn'
+        bindtap = 'commentAction'
+        src = '../image/comment.png'
+      >
+      </image>
+      <image
+        class = 'like_btn'
+        bindtap = 'likeAction'
+        src = "{{ item.isLike ? '../image/like_highlight.png' : '../image/like_normal.png' }}" >
+      </image>
+    </view>
+
+  </view>
+</scroll-view>

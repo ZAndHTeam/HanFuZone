@@ -1,0 +1,73 @@
+<!-- 滚动视图 -->
+<scroll-view class="mainScroll" scroll-y="true" >
+  <view 
+    class = "friendTimeView"
+    wx:for = "{{ trends }}"
+    wx:key = "*this"
+  >
+    <view class = "avater_header">
+      <image class = "avater_img" src = "../../image/defaultAvater.png" >
+      </image>
+      <view class = "headerView_left">
+        <text class = "nickNameText"> {{ item.nickName }} </text>
+        <text class = "createDateText"> {{ item.createDate }} </text>
+      </view>
+    </view>
+
+    <!-- 文字view -->
+    <view class = "content_text" >
+      {{ item.contentText }}
+    </view>
+
+    <!-- 图片view -->
+    <block 
+      wx:if = "{{ item.friendNeedImg }}"
+    >
+      <view class = 'content_image'>
+        <image src = '{{ item.contentImage }}' >
+        </image>
+      </view>
+    </block>
+
+    <!-- 足部view -->
+    <view
+      class = 'time_footer'  
+    >
+      <button
+        open-type = 'share'
+        class = 'share_btn'
+        bindtap = 'shareAction'
+        form-type = 'share' 
+        style = "background-image:url(../../image/share.png);" 
+      >
+      </button>
+      <image
+        class = 'comment_btn'
+        bindtap = 'commentAction'
+        src = '../../image/comment.png'
+      >
+      </image>
+      <image
+        class = 'like_btn'
+        bindtap = 'likeAction'
+        src = "{{ item.isLike ? '../../image/like_highlight.png' : '../../image/like_normal.png' }}" >
+      </image>
+    </view>
+
+    <!-- 评论部分 -->
+    <block 
+      wx:if = " {{ item.comments.length > 0 }} "
+    >
+      <view class= "comment_line"></view>
+      <view
+        class = "commentText"
+        wx:for = "{{ item.comments }}"
+        wx:for-item = "comment_content"
+        wx:key = "id" 
+      >
+        {{ comment_content.nickName }} : {{ comment_content.comment }}
+      </view>
+    </block>
+
+  </view>
+</scroll-view>

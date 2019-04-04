@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/zone/zone",
+    "pages/message/message",
+    "pages/message/chat",
+    "pages/user/user",
+    "pages/user/newTrend",
+    "pages/user/relateUser/relateUser",
+    "pages/user/relateUser/otherUser",
+    "pages/user/trend/trend"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#D5F8FF"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/zone/zone",
+        "text": "社区"
+      },
+      {
+        "pagePath": "pages/message/message",
+        "text": "消息"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "个人"
+      }
+    ]
+  }
+}

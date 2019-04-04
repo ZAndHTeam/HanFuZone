@@ -1,0 +1,47 @@
+page {
+  background-color: rgb(241, 221, 229);
+}
+
+/** 用户布局 */
+.userCard {
+  display: flex;
+  height: 150rpx;
+  margin-top: 20rpx;
+  border-radius: 10rpx;
+  align-items: center;
+  background-color: white;
+}
+
+/* 动态cell 头部 */
+.avater_header {
+  display: flex;
+  flex-direction: row;
+  height: 100rpx;
+  align-items: center;
+}
+.avater_img {
+  display: flex;
+  width: 120rpx;
+  height: 120rpx;
+  margin-left: 10rpx;
+}
+.headerView_left {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10rpx;
+  justify-content: center;
+  height: 120rpx;
+}
+.nickNameText {
+  display: flex;
+  height: 40rpx;
+  margin-bottom: 20rpx;
+  font-size: 40rpx;
+}
+.messageContent {
+  display: flex;
+  height: 30rpx;
+  margin-top: 10rpx;
+  font-size: 30rpx;
+  color: grey;
+}

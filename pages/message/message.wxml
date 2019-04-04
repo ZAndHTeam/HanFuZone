@@ -1,0 +1,16 @@
+<navigator 
+    url="chat?id={{index+1}}" 
+    hover-class="navigator-hover"
+    class = "userCard"
+    wx:for = "{{ userCrads }}"
+    wx:key = "*this"
+  >
+    <view class = "avater_header">
+      <image class = "avater_img" src = "{{ item.userImage }}" >
+      </image>
+      <view class = "headerView_left">
+        <text class = "nickNameText"> {{ item.nickName }} </text>
+        <text class = "messageContent"> {{ item.messageContent }} </text>
+      </view>
+    </view>
+  </navigator>

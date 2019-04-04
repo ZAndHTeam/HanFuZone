@@ -1,0 +1,150 @@
+page {
+  background-color: rgb(241, 221, 229);
+}
+
+/* 选项卡 */
+.tab-container {
+  display: flex;
+  height: 60.rpx;
+  background-color: white;
+  z-index: 2;
+}
+.withAnimate {
+  transition: all 100ms ease;
+}
+.tab-container .tab-bar {
+  position: relative;
+  display: flex;
+  font-size: 35rpx;
+  color: #0E0E0E;
+}
+.tab-container .tab-bar .tab-active {
+  color: #E66671;
+}
+.tab-container .tab-bar .tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 20rpx;
+}
+.tab-container .tab-bar .under-line {
+  position: absolute;
+  display: flex;
+  bottom: 0;
+  height: 6rpx;
+  background-color: #E66671;
+}
+
+/* 主scroll view */
+.mainScroll {
+  display: flex;
+  margin-bottom: 50rpx;
+  margin-top: 70rpx;
+}
+
+/* 动态cell */
+.friendTimeView {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 20rpx;
+  border-radius: 10rpx;
+  background-color: white;
+}
+
+/* 动态cell 头部 */
+.avater_header {
+  display: flex;
+  flex-direction: row;
+  margin-top: 10rpx;
+  height: 100rpx;
+  align-items: center;
+}
+.avater_img {
+  display: flex;
+  width: 100rpx;
+  height: 100rpx;
+  margin-left: 10rpx;
+}
+.headerView_left {
+  display: flex;
+  flex-direction: column;
+  margin-left: 10rpx;
+  justify-content: center;
+  height: 120rpx;
+}
+.nickNameText {
+  display: flex;
+  height: 30rpx;
+  font-size: 30rpx;
+}
+.createDateText {
+  display: flex;
+  height: 30rpx;
+  margin-top: 10rpx;
+  font-size: 30rpx;
+}
+
+/* 动态cell 内容视图 */
+.content_text {
+  display: flex;
+  margin-left: 20rpx;
+  margin-top: 10rpx;
+  margin-right: 20rpx;
+}
+.content_image {
+  display: flex;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  margin-top: 10rpx;
+}
+
+/* 动态cell 尾部 */
+.time_footer {
+  display: flex;
+  margin-top: 10rpx;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+  height: 80rpx;
+}
+.share_btn {
+  display: flex;
+  margin-right: 50rpx;
+  width: 40rpx;
+  height: 40rpx;
+  background-size: 40rpx 40rpx;
+  background-repeat:no-repeat;
+}
+.comment_btn {
+  display: flex;
+  margin-right: 50rpx;
+  width: 48rpx;
+  height: 40rpx;
+}
+.like_btn {
+  display: flex;
+  margin-right: 30rpx;
+  width: 48rpx;
+  height: 40rpx;
+}
+
+/* 评论 */
+.comment_line {
+  display: flex;
+  height: 1rpx;
+  margin-top: 5rpx;
+  margin-bottom: 10rpx;
+  margin-left: 20rpx;
+  margin-right: 20rpx;
+  background-color: rgba(104, 98, 98, 0.26);
+}
+.commentText {
+  display: flex;
+  padding-left: 20rpx;
+  padding-bottom: 5rpx;
+  padding-top: 10rpx;
+  height: 45rpx;
+  font-size: 30rpx;
+}
