@@ -21,6 +21,9 @@ Page({
 
     // 动态数组
     friendTimes: app.globalData.friendTimes,
+
+    currentComment: '',
+    currentCommentInex: 0,
   },
 
   /**
@@ -69,7 +72,10 @@ Page({
     activeTab = page;
     this.setData({ activeTab: activeTab })
     tabContainer.offset = tabContainer.windowWidth * activeTab;
-    this.setData({ tabContainer: this.data.tabContainer })
+    this.setData({ 
+      tabContainer: this.data.tabContainer,
+      currentCommentInex: 0,
+    })
   },
 
   /**
@@ -102,12 +108,9 @@ Page({
 
   //点击评论
   commentAction(e) {
-    console.log('评论')
-    // wx.showToast({
-    //   title: '评论成功',
-    // })
     this.setData({
-      releaseFocus: true
+      releaseFocus: true,
+      currentCommentInex: e.currentTarget.dataset.index
     })
   },
   //消失评论框
@@ -117,10 +120,44 @@ Page({
     })
   },
   clickSubmitView(e) {
-    console.log('点击submitView')
     this.setData({
       releaseFocus: true
     })
+  },
+  textChange: function (e) {
+    this.setData({
+      currentComment: e.detail.value
+    })
+  }, 
+  // 发送评论
+  sendComment(e) {
+    this.setData({
+      releaseFocus: false
+    })
+
+    let { friendTimes, currentComment, currentCommentInex, activeTab } = this.data;
+    var info = friendTimes[currentCommentInex];
+    var comment = {
+      nickName: app.globalData.userMoreInfo.nickName,
+      comment: currentComment
+    };
+    info.comments.push(comment);
+    friendTimes[currentCommentInex] = info;
+
+    if (activeTab == 0) {
+      // 修改全局变量
+      app.globalData.friendTimes = friendTimes;
+
+      // 刷新界面
+      this.setData({ friendTimes: app.globalData.friendTimes });
+
+    } else {
+      // 修改全局变量
+      app.globalData.recommend = friendTimes;
+
+      // 刷新界面
+      this.setData({ friendTimes: app.globalData.recommend });
+    }
   }
 
 }),

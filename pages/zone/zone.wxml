@@ -66,6 +66,7 @@
       <image
         class = 'comment_btn'
         bindtap = 'commentAction'
+        data-index = "{{ index }}"
         src = '../image/comment.png'
       >
       </image>
@@ -97,11 +98,17 @@
 
 <!---评论框--->
 <view class = "commentBox" wx:if='{{releaseFocus}}' bindtap='clickMask'>
-  <view class='submitView' wx:if='{{releaseFocus}}' catchtap='clickSubmitView'>
+  <view class='submitView' wx:if='{{releaseFocus}}'>
     <!-- <view class='cf-box'> -->
-      <textarea class='cf-content' fixed='true' placeholder='我要评论'></textarea>
-      <slot></slot>
-      <text class='cf-send'>发送</text>
+      <textarea 
+         bindinput='textChange'
+         focus="{{releaseFocus}}"
+         class='cf-content'
+         fixed='true' 
+         placeholder='我要评论' 
+         catchtap='clickSubmitView'>
+        </textarea>
+        <text class='cf-send' bindtap='sendComment'>发送</text>
     <!-- </view> -->
    </view>
 </view>    

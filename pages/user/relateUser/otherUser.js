@@ -1,4 +1,5 @@
-//index.js
+// App数据
+var app = getApp();
 
 Page({
   data: {
