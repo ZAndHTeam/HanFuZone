@@ -76,6 +76,8 @@ Page({
         friendNeedImg: true
       }
     ],
+
+    
   },
 
   /**
@@ -109,6 +111,9 @@ Page({
     }
     this.setData({ friendTimes: friendTimes });
     wx.hideLoading();
+    this.setData({
+      releaseFocus: false
+    })
   },
 
   /**
@@ -121,7 +126,32 @@ Page({
     tabContainer.offset = tabContainer.windowWidth * activeTab;
     this.setData({ tabContainer: this.data.tabContainer })
   },
+
+  //点击评论
+  commentAction(e) {
+    console.log('评论')
+    // wx.showToast({
+    //   title: '评论成功',
+    // })
+    this.setData({
+      releaseFocus:true
+    })
+  },
+  //消失评论框
+  clickMask(e) {
+    this.setData({
+      releaseFocus: false
+    })
+  },
+  clickSubmitView(e) {
+    console.log('点击submitView')
+    this.setData({
+      releaseFocus: true
+    })
+  }
+
 }),
+
 
 function sendCommend (commentString){
   this._updateSelectedPage(e.currentTarget.dataset.index);

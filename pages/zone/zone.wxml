@@ -93,3 +93,14 @@
 
   </view>
 </scroll-view>
+
+<!---评论框--->
+<view class = "commentBox" wx:if='{{releaseFocus}}' bindtap='clickMask'>
+  <view class='submitView' wx:if='{{releaseFocus}}' catchtap='clickSubmitView'>
+    <!-- <view class='cf-box'> -->
+      <textarea class='cf-content' fixed='true' placeholder='我要评论'></textarea>
+      <slot></slot>
+      <text class='cf-send'>发送</text>
+    <!-- </view> -->
+   </view>
+</view>    
