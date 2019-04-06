@@ -1,10 +1,14 @@
-//index.js
 //获取应用实例
+var app = getApp();
 
 Page({
   data: {
-    nickName: '我不叫王曼',
-    signature: '这个人很懒！这个人很懒！这个人很懒！',
+    nickName: app.globalData.userMoreInfo.nickName,
+    // 动态数组
+    friendTimes: app.globalData.myTrend,
+
+    signature: app.globalData.userMoreInfo.signature,
+
     tabs: [
       '动态',
       '关注',
@@ -20,52 +24,6 @@ Page({
       19,
       32,
       301,
-    ],
-    // 动态数组
-    friendTimes: [
-      {
-        contentText: '1\n3',
-        nickName: '我',
-        createDate: '2019 01/23',
-        contentImage: '',
-        friendNeedImg: false,
-        isLike: true,
-      },
-      {
-        contentText: '2',
-        nickName: '我',
-        createDate: '2019 01/23',
-        contentImage: '../image/defaultAvater.png',
-        friendNeedImg: true
-      },
-      {
-        contentText: '1\n3',
-        nickName: '我',
-        createDate: '2019 01/23',
-        contentImage: '../image/defaultAvater.png',
-        friendNeedImg: true
-      },
-      {
-        contentText: '1\n3',
-        nickName: '我',
-        createDate: '2019 01/23',
-        contentImage: '../image/defaultAvater.png',
-        friendNeedImg: true
-      },
-      {
-        contentText: '1\n3',
-        nickName: '我',
-        createDate: '2019 01/23',
-        contentImage: '../image/defaultAvater.png',
-        friendNeedImg: true
-      },
-      {
-        contentText: '1\n3',
-        nickName: '我',
-        createDate: '2019 01/23',
-        contentImage: '../image/defaultAvater.png',
-        friendNeedImg: true
-      }
     ],
   },
   

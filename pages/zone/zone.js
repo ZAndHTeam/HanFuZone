@@ -1,6 +1,5 @@
 // posts.js
-// var Api = require('../../utils/api.js');
-var util = require('../../utils/util.js');
+var app = getApp();
 
 Page({
   /**
@@ -19,63 +18,9 @@ Page({
       offset: 0,
     },
     activeTab: 0,
-    
-    // 动态数组s
-    friendTimes: [
-      { 
-        contentText: '1\n3', 
-        nickName: '我',
-        createDate: '2019 01/23',
-        contentImage: '',
-        friendNeedImg: false,
-        isLike: true,
-        comments: [
-          {
-            nickName: "张三", 
-            comment: "adadasd"
-          },
-          {
-            nickName: "李四",
-            comment: "我是最帅的"
-          }
-        ]
-      },
-      { 
-        contentText: '2',
-        nickName: '我',
-        createDate: '2019 01/23',
-        contentImage: '../image/defaultAvater.png',
-        friendNeedImg: true
-      },
-      { 
-        contentText: '1\n3',
-        nickName: '我',
-        createDate: '2019 01/23',
-        contentImage: '../image/defaultAvater.png',
-        friendNeedImg: true
-      },
-      { 
-        contentText: '1\n3',
-        nickName: '我',
-        createDate: '2019 01/23',
-        contentImage: '../image/defaultAvater.png',
-        friendNeedImg: true  
-      },
-      { 
-        contentText: '1\n3',
-        nickName: '我',
-        createDate: '2019 01/23',
-        contentImage: '../image/defaultAvater.png',
-        friendNeedImg: true
-      },
-      { 
-        contentText: '1\n3',
-        nickName: '我',
-        createDate: '2019 01/23',
-        contentImage: '../image/defaultAvater.png',
-        friendNeedImg: true
-      }
-    ],
+
+    // 动态数组
+    friendTimes: app.globalData.friendTimes,
   },
 
   /**
@@ -105,9 +50,11 @@ Page({
 
     let { friendTimes } = this.data;
     if (this.data.activeTab == 0) {
-      
+      this.setData({ friendTimes: app.globalData.friendTimes });
+    } else {
+      this.setData({ friendTimes: app.globalData.recommend });
     }
-    this.setData({ friendTimes: friendTimes });
+
     wx.hideLoading();
   },
 
@@ -121,34 +68,44 @@ Page({
     tabContainer.offset = tabContainer.windowWidth * activeTab;
     this.setData({ tabContainer: this.data.tabContainer })
   },
+
+  /**
+   * 点击喜欢按钮
+   */ 
+  likeAction(e) {
+    let { friendTimes, activeTab } = this.data;
+
+    // 修改喜欢参数
+    var info = friendTimes[e.currentTarget.dataset.index];
+    info.isLike = !info.isLike;
+    friendTimes[e.currentTarget.dataset.index] = info;
+
+    if (activeTab == 0) {
+      // 修改全局变量
+      app.globalData.friendTimes = friendTimes;
+
+      // 刷新界面
+      this.setData({ friendTimes: app.globalData.friendTimes });
+
+    } else {
+      // 修改全局变量
+      app.globalData.recommend = friendTimes;
+
+      // 刷新界面
+      this.setData({ friendTimes: app.globalData.recommend });
+    }
+    
+  },
+
 }),
 
 function sendCommend (commentString){
   this._updateSelectedPage(e.currentTarget.dataset.index);
-
+  
   // 更换数据源
   wx.showLoading({
     title: '发送中',
   });
 
-  let { friendTimes } = this.data;
-  if (this.data.activeTab == 0) {
-    util.postApi(
-      "/friend",
-      { data: "commentString" },
-    ),
-      function (res) {
-        friendTimes = res;
-      }
-  } else {
-    util.getApi(
-      "/friend",
-      { data: "all" },
-    ),
-      function (res) {
-        friendTimes = res;
-      }
-  }
-  this.setData({ friendTimes: friendTimes });
   wx.hideLoading();
 }

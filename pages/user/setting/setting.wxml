@@ -6,29 +6,36 @@
 
 
 <view class='nickNameView'>
-  <view class='nickName'>昵称：
+  <view class='nickName'>昵称:
       <input class='input' name='nickName' placeholder='请输入昵称' placeholder-class='nickNameInputCls' />
 
   </view>
   </view>
 
   <view class='nickNameView'>
-  <view class='nickName'>个人签名：
+  <view class='nickName'>个人签名:
       <input class='input' name='nickName' placeholder='请输入个人签名' placeholder-class='nickNameInputCls' />
 
   </view>
   </view>
 
   <view class='nickNameView'>
-  <view class='nickName'>性别：
+  <view class='nickName'>性别:
       <input class='input' name='nickName' placeholder='请输入性别' placeholder-class='nickNameInputCls' />
 
   </view>
   </view>
 
   <view class='nickNameView'>
-  <view class='nickName'>个人生日：
-      <input class='input' name='nickName' placeholder='请输入您的出生年月日' placeholder-class='nickNameInputCls' />
+  <view class='nickName'>个人生日:
+      <input 
+       class='input'
+       name='nickName'
+       placeholder='请输入您的出生年月日' 
+       placeholder-class='nickNameInputCls' 
+      >
+      {{ nickName }}
+      </input>
 
   </view>
   </view>

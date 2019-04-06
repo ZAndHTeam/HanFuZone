@@ -189,9 +189,9 @@ App({
     ],
 
     // 用户信息
-    userInfo: {
+    userMoreInfo: {
       nickName: '我叫王曼曼',
-      contentText: '',
+      signature: '这是一个懒人',
       sex: '',
       birthday: '2019 03/14',
     },
@@ -237,8 +237,115 @@ App({
     ],
 
     // 粉丝
+    fans: [
+      {
+        nikeName: '曼曼粉',
+        subtitle: '我是王曼的粉',
+        avatarImage: '',
+      },
+      {
+        nikeName: '曼曼粉',
+        subtitle: '我是王曼的粉',
+        avatarImage: '',
+      },
+      {
+        nikeName: '曼曼粉',
+        subtitle: '我是王曼的粉',
+        avatarImage: '',
+      },
+      {
+        nikeName: '曼曼粉',
+        subtitle: '我是王曼的粉',
+        avatarImage: '',
+      },
+      {
+        nikeName: '曼曼粉',
+        subtitle: '我是王曼的粉',
+        avatarImage: '',
+      },
+      {
+        nikeName: '曼曼粉',
+        subtitle: '我是王曼的粉',
+        avatarImage: '',
+      },
+      {
+        nikeName: '曼曼粉',
+        subtitle: '我是王曼的粉',
+        avatarImage: '',
+      },
+      {
+        nikeName: '曼曼粉',
+        subtitle: '我是王曼的粉',
+        avatarImage: '',
+      },
+      {
+        nikeName: '曼曼粉',
+        subtitle: '我是王曼的粉',
+        avatarImage: '',
+      },
+      {
+        nikeName: '曼曼粉',
+        subtitle: '我是王曼的粉',
+        avatarImage: '',
+      },
+    ],
 
     // 关注
+    follows: [
+      {
+        nikeName: '曼曼粉',
+        subtitle: '我是王曼的粉',
+        avatarImage: '',
+      },
+      {
+        nikeName: '曼曼粉',
+        subtitle: '我是王曼的粉',
+        avatarImage: '',
+      },
+      {
+        nikeName: '曼曼粉',
+        subtitle: '我是王曼的粉',
+        avatarImage: '',
+      },
+      {
+        nikeName: '曼曼粉',
+        subtitle: '我是王曼的粉',
+        avatarImage: '',
+      },
+      {
+        nikeName: '曼曼粉',
+        subtitle: '我是王曼的粉',
+        avatarImage: '',
+      },
+      {
+        nikeName: '曼曼粉',
+        subtitle: '我是王曼的粉',
+        avatarImage: '',
+      },
+      {
+        nikeName: '曼曼粉',
+        subtitle: '我是王曼的粉',
+        avatarImage: '',
+      },
+      {
+        nikeName: '曼曼粉',
+        subtitle: '我是王曼的粉',
+        avatarImage: '',
+      },
+      {
+        nikeName: '曼曼粉',
+        subtitle: '我是王曼的粉',
+        avatarImage: '',
+      },
+      {
+        nikeName: '曼曼粉',
+        subtitle: '我是王曼的粉',
+        avatarImage: '',
+      }
+    ]
+
+
 
   },
+
 })
