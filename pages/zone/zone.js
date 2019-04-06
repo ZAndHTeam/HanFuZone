@@ -7,6 +7,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    releaseFocus: false,
+
     tabs: [
       '关注', 
       '推荐'
@@ -118,8 +120,7 @@ Page({
     this.setData({ activeTab: activeTab })
     tabContainer.offset = tabContainer.windowWidth * activeTab;
     this.setData({ tabContainer: this.data.tabContainer })
-  }
-  
+  },
 }),
 
 function sendCommend (commentString){

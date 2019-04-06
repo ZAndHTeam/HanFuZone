@@ -112,7 +112,9 @@ Page({
   
   // 点击设置
   settingAction(e) {
-
+    wx.navigateTo({
+      url: 'setting/setting',
+    })
   },
 
   // 点击新动态

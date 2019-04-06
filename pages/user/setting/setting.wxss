@@ -1,0 +1,38 @@
+page {
+  background-color: rgb(241, 221, 229);
+}
+.uploadPictureView {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
+  .uploadPicBtn {
+    width: 100px;
+    height: 100px;
+    border-radius: 500px;
+    background: red;
+    margin-top: 30px;
+  }
+  .nickNameView {
+    display: flex;
+    background-color: rgba(240, 144, 144, 0.781);
+    margin-top: 15px;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 30px;
+    }
+  .nickName {
+    display: flex;
+    color: rgb(145, 145, 133);
+    padding-left: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 14px;
+  }
+  .input {
+    flex-grow: 1;
+  }
+  .nickNameInputCls {
+
+  }
+

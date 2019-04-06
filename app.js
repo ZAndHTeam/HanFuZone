@@ -106,10 +106,11 @@ App({
 
   //全局数据--测试
   globalData: {
+    // 关注
     friendTimes: [
       {
-        contentText: '1\n3',
-        nickName: '我',
+        nickName: '王小曼',
+        contentText: '吃得多睡得好',
         createDate: '2019 01/23',
         contentImage: '',
         friendNeedImg: false,
@@ -126,40 +127,118 @@ App({
         ]
       },
       {
-        contentText: '2',
+        nickName: '张全蛋',
+        contentText: '我是张全蛋，今天是我来到富土康的第一天',
+        createDate: '2019 02/20',
+        contentImage: '../image/defaultAvater.png',
+        friendNeedImg: true
+      },
+      {
         nickName: '我',
+        contentText: '1\n3',
         createDate: '2019 01/23',
         contentImage: '../image/defaultAvater.png',
         friendNeedImg: true
       },
       {
-        contentText: '1\n3',
         nickName: '我',
+        contentText: '1\n3',
         createDate: '2019 01/23',
         contentImage: '../image/defaultAvater.png',
         friendNeedImg: true
       },
       {
-        contentText: '1\n3',
         nickName: '我',
+        contentText: '1\n3',
         createDate: '2019 01/23',
         contentImage: '../image/defaultAvater.png',
         friendNeedImg: true
       },
       {
-        contentText: '1\n3',
         nickName: '我',
-        createDate: '2019 01/23',
-        contentImage: '../image/defaultAvater.png',
-        friendNeedImg: true
-      },
-      {
         contentText: '1\n3',
-        nickName: '我',
         createDate: '2019 01/23',
         contentImage: '../image/defaultAvater.png',
         friendNeedImg: true
       }
     ],
+
+    // 推荐
+    recommend: [
+      {
+        nickName: '小猫咪',
+        contentText: '我是张全蛋，今天是我来到富土康的第一天',
+        createDate: '2019 02/20',
+        contentImage: '../image/defaultAvater.png',
+        friendNeedImg: true
+      },
+      {
+        nickName: '小猫',
+        contentText: '我是张全蛋，今天是我来到富土康的第一天',
+        createDate: '2019 02/20',
+        contentImage: '../image/defaultAvater.png',
+        friendNeedImg: true
+      },
+      {
+        nickName: '小',
+        contentText: '我是张全蛋，今天是我来到富土康的第一天',
+        createDate: '2019 02/20',
+        contentImage: '../image/defaultAvater.png',
+        friendNeedImg: true
+      },
+    ],
+
+    // 用户信息
+    userInfo: {
+      nickName: '我叫王曼曼',
+      contentText: '',
+      sex: '',
+      birthday: '2019 03/14',
+    },
+
+    // 我的动态
+    myTrend: [
+      {
+        nickName: '王小曼',
+        contentText: '吃得多睡得好',
+        createDate: '2019 01/23',
+        contentImage: '',
+        friendNeedImg: false,
+        isLike: true,
+        comments: [
+          {
+            nickName: "张三",
+            comment: "adadasd"
+          },
+          {
+            nickName: "李四",
+            comment: "我是最帅的"
+          }
+        ]
+      },
+      {
+        nickName: '王小曼',
+        contentText: '曼曼可以的',
+        createDate: '2019 01/05',
+        contentImage: '',
+        friendNeedImg: false,
+        isLike: true,
+        comments: [
+          {
+            nickName: "张三",
+            comment: "adadasd"
+          },
+          {
+            nickName: "李四",
+            comment: "我是最帅的"
+          }
+        ]
+      },
+    ],
+
+    // 粉丝
+
+    // 关注
+
   },
 })

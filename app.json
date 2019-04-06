@@ -5,6 +5,7 @@
     "pages/message/chat",
     "pages/user/user",
     "pages/user/newTrend",
+    "pages/user/setting/setting",
     "pages/user/relateUser/relateUser",
     "pages/user/relateUser/otherUser",
     "pages/user/trend/trend"
