@@ -38,6 +38,24 @@ Page({
     }
   },
 
+  onShow(options) {
+    var myTrend = app.globalData.myTrend.slice();
+    
+    this.setData({
+      nickName: app.globalData.userMoreInfo.nickName,
+      // 动态数组
+      friendTimes: myTrend.reverse(),
+      signature: app.globalData.userMoreInfo.signature,
+
+      tabsNumber: [
+        app.globalData.myTrend.length,
+        app.globalData.follows.length,
+        app.globalData.fans.length,
+      ],
+    })
+
+  },
+
   handlerTabTap(e) {
     // 进入相关页面
     switch (e.currentTarget.dataset.index) {

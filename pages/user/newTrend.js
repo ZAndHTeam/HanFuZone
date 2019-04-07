@@ -1,4 +1,5 @@
 import { $init, $digest } from '../../utils/common.util'
+var app = getApp();
 
 Page({
 
@@ -57,7 +58,20 @@ Page({
     })
   },
 
+  // 点击发送
   submitForm(e) {
+    var info = {
+      nickName: app.globalData.userMoreInfo.nickName,
+      contentText: this.data.content,
+      createDate: '2019 01/23',
+      contentImage: '',
+      friendNeedImg: false,
+      isLike: false,
+      comments: [],
+    };
+
+    app.globalData.myTrend.push(info);
+
     wx.showToast({
       title: '发表成功',
       duration: 1000
