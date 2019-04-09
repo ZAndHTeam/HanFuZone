@@ -2,11 +2,17 @@
 
 App({
   onLaunch: function () {
+<<<<<<< HEAD
     
     for (var i = 0;i<this.globalData.myTrend.length;i++) {
       this.globalData.myTrend[i].nickName = this.globalData.userMoreInfo.nickName;
     }
 
+=======
+    for (var i = 0; i < this.globalData.myTrend.length; i++) {
+      this.globalData.myTrend[i].nickName = this.globalData.userMoreInfo.nickName;
+    }
+>>>>>>> 9b075fe4843e1132a5b0ecc7b45fe2e6e88f5b62
   },
 
 
@@ -136,7 +142,11 @@ App({
         ]
       },
       {
+<<<<<<< HEAD
         nickName: '',
+=======
+        nickName: "",
+>>>>>>> 9b075fe4843e1132a5b0ecc7b45fe2e6e88f5b62
         contentText: '曼曼可以的',
         createDate: '2019 01/05',
         contentImage: '',
@@ -264,4 +274,5 @@ App({
     ]
 
   }
+
 })

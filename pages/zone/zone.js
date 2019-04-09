@@ -1,5 +1,6 @@
 // posts.js
 var app = getApp();
+import { $init, $digest } from '../../utils/common.util'
 
 Page({
   /**
@@ -57,6 +58,30 @@ Page({
     } else {
       this.setData({ friendTimes: app.globalData.recommend });
     }
+
+    const db = wx.cloud.database();
+    db.collection('friendTimes').add({
+      data: {
+        friendTimes: friendTimes,
+      },
+      success: res => {
+        // 在返回结果中会包含新创建的记录的 _id
+        this.setData({
+          username: e.detail.value.username
+        })
+        wx.showToast({
+          title: '新增记录成功',
+        })
+        console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
+      },
+      fail: err => {
+        wx.showToast({
+          icon: 'none',
+          title: '新增记录失败'
+        })
+        console.error('[数据库] [新增记录] 失败：', err)
+        }
+    })
 
     wx.hideLoading();
     this.setData({
@@ -158,7 +183,22 @@ Page({
       // 刷新界面
       this.setData({ friendTimes: app.globalData.recommend });
     }
-  }
+  },
+
+  handleImagePreview(e) {
+    let { friendTimes, currentCommentInex } = this.data;
+    
+    const idx = e.target.dataset.idx
+    var info = friendTimes[currentCommentInex];
+    const image = info.contentImage;
+
+    console.log(info);
+
+    wx.previewImage({
+      current: image,
+      urls: [image],
+    })
+  },
 
 }),
 

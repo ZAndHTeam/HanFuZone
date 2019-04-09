@@ -5,7 +5,13 @@
     <view class="weui-cells weui-cells_after-title">
       <view class="weui-cell">
         <view class="weui-cell__bd">
-          <textarea class="weui-textarea" placeholder="分享你的汉服生活......" maxlength="140" placeholder-style="color:#b3b3b3;font-size:14px;" style="height: 12rem" bindinput="handleContentInput" />
+          <textarea 
+            class="weui-textarea" 
+            placeholder="分享你的汉服生活......" 
+            maxlength="140" 
+            placeholder-style="color:#b3b3b3;font-size:14px;" 
+            style="height: 12rem" 
+            bindinput="handleContentInput" />
           <view class="weui-textarea-counter">{{contentCount}}/140</view>
         </view>
       </view>
