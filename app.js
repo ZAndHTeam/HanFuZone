@@ -1,12 +1,18 @@
 // app.js
+
 App({
   onLaunch: function () {
+    
+    for (var i = 0;i<this.globalData.myTrend.length;i++) {
+      this.globalData.myTrend[i].nickName = this.globalData.userMoreInfo.nickName;
+    }
 
   },
 
+
   //全局数据--测试
   globalData: {
-    // 关注
+    //关注
     friendTimes: [
       {
         nickName: '王小曼',
@@ -112,7 +118,7 @@ App({
     // 我的动态
     myTrend: [
       {
-        nickName: globalData.userMoreInfo.nickName,
+        nickName: '',
         contentText: '吃得多睡得好',
         createDate: '2019 01/23',
         contentImage: '',
@@ -130,7 +136,7 @@ App({
         ]
       },
       {
-        nickName: globalData.userMoreInfo.nickName,
+        nickName: '',
         contentText: '曼曼可以的',
         createDate: '2019 01/05',
         contentImage: '',
