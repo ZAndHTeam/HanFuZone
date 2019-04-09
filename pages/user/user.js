@@ -3,11 +3,15 @@ var app = getApp();
 
 Page({
   data: {
+
+    releaseFocus: false,
+
     nickName: app.globalData.userMoreInfo.nickName,
     // 动态数组
     friendTimes: app.globalData.myTrend,
 
     signature: app.globalData.userMoreInfo.signature,
+
 
     tabs: [
       '动态',
@@ -25,6 +29,11 @@ Page({
       32,
       301,
     ],
+    // 动态数组
+    friendTimes: app.globalData.friendTimes,
+
+    currentComment: '',
+    currentCommentInex: 0,
   },
   
   onLoad: function () {
@@ -81,4 +90,88 @@ Page({
       url: 'newTrend',
     })
   },
+
+  /**
+     * 点击喜欢按钮
+     */
+  likeAction(e) {
+    let { friendTimes, activeTab } = this.data;
+
+    // 修改喜欢参数
+    var info = friendTimes[e.currentTarget.dataset.index];
+    info.isLike = !info.isLike;
+    friendTimes[e.currentTarget.dataset.index] = info;
+
+    if (activeTab == 0) {
+      // 修改全局变量
+      app.globalData.friendTimes = friendTimes;
+
+      // 刷新界面
+      this.setData({ friendTimes: app.globalData.friendTimes });
+
+    } else {
+      // 修改全局变量
+      app.globalData.recommend = friendTimes;
+
+      // 刷新界面
+      this.setData({ friendTimes: app.globalData.recommend });
+    }
+
+  },
+
+  //点击评论
+  commentAction(e) {
+    this.setData({
+      releaseFocus: true,
+      currentCommentInex: e.currentTarget.dataset.index
+    })
+  },
+  //消失评论框
+  clickMask(e) {
+    this.setData({
+      releaseFocus: false
+    })
+  },
+  clickSubmitView(e) {
+    this.setData({
+      releaseFocus: true
+    })
+  },
+  textChange: function (e) {
+    this.setData({
+      currentComment: e.detail.value
+    })
+  },
+  // 发送评论
+  sendComment(e) {
+    this.setData({
+      releaseFocus: false
+    })
+
+    let { friendTimes, currentComment, currentCommentInex, activeTab } = this.data;
+    var info = friendTimes[currentCommentInex];
+    var comment = {
+      nickName: app.globalData.userMoreInfo.nickName,
+      comment: currentComment
+    };
+    info.comments.push(comment);
+    friendTimes[currentCommentInex] = info;
+
+    if (activeTab == 0) {
+      // 修改全局变量
+      app.globalData.friendTimes = friendTimes;
+
+      // 刷新界面
+      this.setData({ friendTimes: app.globalData.friendTimes });
+
+    } else {
+      // 修改全局变量
+      app.globalData.recommend = friendTimes;
+
+      // 刷新界面
+      this.setData({ friendTimes: app.globalData.recommend });
+    }
+  }
+  
 })
+

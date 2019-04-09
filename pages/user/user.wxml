@@ -88,12 +88,14 @@
       <image
         class = 'comment_btn'
         bindtap = 'commentAction'
+        data-index = "{{ index }}"
         src = '../image/comment.png'
       >
       </image>
       <image
         class = 'like_btn'
         bindtap = 'likeAction'
+        data-index = "{{ index }}"
         src = "{{ item.isLike ? '../image/like_highlight.png' : '../image/like_normal.png' }}" >
       </image>
     </view>
