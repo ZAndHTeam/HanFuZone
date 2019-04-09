@@ -1,4 +1,9 @@
+
+
+var app = getApp();
+
 Page ({
+
 
   data: {
     // 动态数组
@@ -22,73 +27,11 @@ Page ({
     console.log(this.title);
     if (title == '关注') {
       this.setData ({
-        userCrads: [
-          {
-            nickName: '我',
-            subTitle: '我是好人',
-            userImage: '../../image/defaultAvater.png',
-          },
-          {
-            nickName: '我你',
-            subTitle: '我是好人',
-            userImage: '../../image/defaultAvater.png',
-          },
-          {
-            nickName: '我',
-            subTitle: '我是好人',
-            userImage: '../../image/defaultAvater.png',
-          },
-          {
-            nickName: '我你',
-            subTitle: '我是好人',
-            userImage: '../../image/defaultAvater.png',
-          },
-          {
-            nickName: '我',
-            subTitle: '我是好人',
-            userImage: '../../image/defaultAvater.png',
-          },
-          {
-            nickName: '我你',
-            subTitle: '我是好人',
-            userImage: '../../image/defaultAvater.png',
-          },  
-        ],
+        userCrads: app.globalData.follows,
       });
     } else {
       this.setData({
-        userCrads: [
-          {
-            nickName: '你',
-            subTitle: '我是粉丝',
-            userImage: '../../image/defaultAvater.png',
-          },
-          {
-            nickName: '我你',
-            subTitle: '我是粉丝',
-            userImage: '../../image/defaultAvater.png',
-          },
-          {
-            nickName: '我',
-            subTitle: '我是粉丝',
-            userImage: '../../image/defaultAvater.png',
-          },
-          {
-            nickName: '我你',
-            subTitle: '我是粉丝',
-            userImage: '../../image/defaultAvater.png',
-          },
-          {
-            nickName: '我',
-            subTitle: '我是粉丝',
-            userImage: '../../image/defaultAvater.png',
-          },
-          {
-            nickName: '我你',
-            subTitle: '我是粉丝',
-            userImage: '../../image/defaultAvater.png',
-          },
-        ],
+        userCrads: app.globalData.fans,
       });
     }
   },

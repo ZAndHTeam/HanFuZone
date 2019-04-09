@@ -8,8 +8,8 @@
       <image class = "avater_img" src = "../../image/defaultAvater.png" >
       </image>
       <view class = "headerView_left">
-        <text class = "nickNameText"> {{ item.nickName }} </text>
-        <text class = "subTitle"> {{ item.subTitle }} </text>
+        <text class = "nickNameText"> {{ item.nikeName }} </text>
+        <text class = "subTitle"> {{ item.subtitle }} </text>
       </view>
     </view>
   </view>

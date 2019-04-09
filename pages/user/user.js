@@ -30,7 +30,7 @@ Page({
       301,
     ],
     // 动态数组
-    friendTimes: app.globalData.friendTimes,
+    friendTimes: app.globalData.myTrend,
 
     currentComment: '',
     currentCommentInex: 0,
@@ -48,7 +48,7 @@ Page({
   },
 
   onShow(options) {
-    var myTrend = app.globalData.myTrend.slice();
+    var myTrend = app.globalData.myTrend;
     
     this.setData({
       nickName: app.globalData.userMoreInfo.nickName,
@@ -119,21 +119,10 @@ Page({
     var info = friendTimes[e.currentTarget.dataset.index];
     info.isLike = !info.isLike;
     friendTimes[e.currentTarget.dataset.index] = info;
-
-    if (activeTab == 0) {
-      // 修改全局变量
-      app.globalData.friendTimes = friendTimes;
-
-      // 刷新界面
-      this.setData({ friendTimes: app.globalData.friendTimes });
-
-    } else {
-      // 修改全局变量
-      app.globalData.recommend = friendTimes;
-
-      // 刷新界面
-      this.setData({ friendTimes: app.globalData.recommend });
-    }
+    app.globalData.myTrend = friendTimes;
+    // 刷新界面
+    this.setData({ friendTimes: app.globalData.myTrend });
+    
 
   },
 
@@ -175,20 +164,12 @@ Page({
     info.comments.push(comment);
     friendTimes[currentCommentInex] = info;
 
-    if (activeTab == 0) {
-      // 修改全局变量
-      app.globalData.friendTimes = friendTimes;
+    // 修改全局变量
+    app.globalData.myTrend = friendTimes;
 
-      // 刷新界面
-      this.setData({ friendTimes: app.globalData.friendTimes });
-
-    } else {
-      // 修改全局变量
-      app.globalData.recommend = friendTimes;
-
-      // 刷新界面
-      this.setData({ friendTimes: app.globalData.recommend });
-    }
+    // 刷新界面
+    this.setData({ friendTimes: app.globalData.myTrend });
+    
   }
   
 })

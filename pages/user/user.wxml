@@ -100,5 +100,37 @@
       </image>
     </view>
 
+  <!-- 评论部分 -->
+    <block 
+      wx:if = " {{ item.comments.length > 0 }} "
+    >
+      <view class= "comment_line"></view>
+      <view
+        class = "commentText"
+        wx:for = "{{ item.comments }}"
+        wx:for-item = "comment_content"
+        wx:key = "id" 
+      >
+        {{ comment_content.nickName }} : {{ comment_content.comment }}
+      </view>
+    </block>
+
   </view>
 </scroll-view>
+
+<!---评论框--->
+<view class = "commentBox" wx:if='{{releaseFocus}}' bindtap='clickMask'>
+  <view class='submitView' wx:if='{{releaseFocus}}'>
+    <!-- <view class='cf-box'> -->
+      <textarea 
+         bindinput='textChange'
+         focus="{{releaseFocus}}"
+         class='cf-content'
+         fixed='true' 
+         placeholder='我要评论' 
+         catchtap='clickSubmitView'>
+        </textarea>
+        <text class='cf-send' bindtap='sendComment'>发送</text>
+    <!-- </view> -->
+   </view>
+</view>   

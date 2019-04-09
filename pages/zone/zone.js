@@ -40,7 +40,28 @@ Page({
     } catch (e) {
     }
   },
+  onShow(options) {
+  
+    var myTrend = app.globalData.friendTimes;
+    if (tabs) {
+      if (tabs == 1) {
+        myTrend = app.globalData.recommend;
+      }
+    }
+    this.setData({
+      nickName: app.globalData.userMoreInfo.nickName,
+      // 动态数组
+      friendTimes: myTrend.reverse(),
+      signature: app.globalData.userMoreInfo.signature,
 
+      tabsNumber: [
+        app.globalData.myTrend.length,
+        app.globalData.follows.length,
+        app.globalData.fans.length,
+      ],
+    })
+
+  },
   /**
    * 处理tab点击事件
    */
@@ -59,29 +80,29 @@ Page({
       this.setData({ friendTimes: app.globalData.recommend });
     }
 
-    const db = wx.cloud.database();
-    db.collection('friendTimes').add({
-      data: {
-        friendTimes: friendTimes,
-      },
-      success: res => {
-        // 在返回结果中会包含新创建的记录的 _id
-        this.setData({
-          username: e.detail.value.username
-        })
-        wx.showToast({
-          title: '新增记录成功',
-        })
-        console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
-      },
-      fail: err => {
-        wx.showToast({
-          icon: 'none',
-          title: '新增记录失败'
-        })
-        console.error('[数据库] [新增记录] 失败：', err)
-        }
-    })
+    // const db = wx.cloud.database();
+    // db.collection('friendTimes').add({
+    //   data: {
+    //     friendTimes: friendTimes,
+    //   },
+    //   success: res => {
+    //     // 在返回结果中会包含新创建的记录的 _id
+    //     this.setData({
+    //       username: e.detail.value.username
+    //     })
+    //     wx.showToast({
+    //       title: '新增记录成功',
+    //     })
+    //     console.log('[数据库] [新增记录] 成功，记录 _id: ', res._id)
+    //   },
+    //   fail: err => {
+    //     wx.showToast({
+    //       icon: 'none',
+    //       title: '新增记录失败'
+    //     })
+    //     console.error('[数据库] [新增记录] 失败：', err)
+    //     }
+    // })
 
     wx.hideLoading();
     this.setData({
