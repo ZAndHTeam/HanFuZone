@@ -1,9 +1,8 @@
 <!---头像-->
 <view class='uploadPictureView'>
-  <view class='uploadPicBtn'> 
-  </view>
+<image class="uploadPicBtn" src="{{userInfo.headerPath}}" mode="aspectFill" bindtap='uploadHeaderImage'>
+ </image>
 </view>
-
 
 <view class='nickNameView'>
   <view class='nickName'>昵称:

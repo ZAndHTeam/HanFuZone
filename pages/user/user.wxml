@@ -8,8 +8,8 @@
   </view>
 
   <view class = 'header_bottom'>
-    <view class = 'avater_view'>
-    </view>
+  <image class="avater_view" src="{{headerPath}}" mode="aspectFill" bindtap='uploadHeaderImage'>
+ </image>
     <view class = 'nickName'>
       {{ nickName }}
     </view>

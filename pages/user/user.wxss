@@ -40,7 +40,6 @@ page {
   display: flex;
   width: 160rpx;
   height: 160rpx;
-  background-color: red;
 }
 .nickName {
   display: flex;

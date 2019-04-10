@@ -112,6 +112,7 @@ App({
       signature: '这是一个懒人',
       sex: '',
       birthday: '2019 03/14',
+      headerPath:'../image/defaultAvater.png'
     },
 
     // 我的动态

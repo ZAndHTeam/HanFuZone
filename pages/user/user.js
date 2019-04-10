@@ -11,7 +11,7 @@ Page({
     friendTimes: app.globalData.myTrend,
 
     signature: app.globalData.userMoreInfo.signature,
-
+    headerPath: app.globalData.userMoreInfo.headerPath,
 
     tabs: [
       '动态',
@@ -55,7 +55,7 @@ Page({
       // 动态数组
       friendTimes: myTrend.reverse(),
       signature: app.globalData.userMoreInfo.signature,
-
+      headerPath: app.globalData.userMoreInfo.headerPath,
       tabsNumber: [
         app.globalData.myTrend.length,
         app.globalData.follows.length,
