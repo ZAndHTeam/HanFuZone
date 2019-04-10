@@ -86,8 +86,9 @@ Page({
   // 点击发送
   submitForm(e) {
     var that = this;
-    var images = Array;
-    for (var i in this.data.images) {
+    var images = [];
+    console.log(this.data.images);
+    for (var i = 0; i < this.data.images.length; i++) {
       wx.saveFile({
         tempFilePath: this.data.images[i],
         success: function (res1) {
@@ -98,28 +99,53 @@ Page({
           // that.setData({
           //   images: images,
           // });
-          console.log('====='+images);
+          console.log(that.data.images.length +'i='+ i);
+          if (i == that.data.images.length) {
+            var info = {
+              nickName: app.globalData.userMoreInfo.nickName,
+              contentText: that.data.content,
+              createDate: '2019 04/13',
+              contentImage: images,
+              friendNeedImg: true,
+              isLike: false,
+              comments: [],
+            };
+
+            console.log('=====' + info.contentImage);
+
+            app.globalData.myTrend.push(info);
+            app.globalData.friendTimes.push(info);
+
+            wx.showToast({
+              title: '发表成功',
+              duration: 1000
+            })
+          }
         }
       })
     }
-     
-    
-    var info = {
-      nickName: app.globalData.userMoreInfo.nickName,
-      contentText: this.data.content,
-      createDate: '2019 01/23',
-      contentImage: '',
-      friendNeedImg: false,
-      isLike: false,
-      comments: [],
-    };
+    if (this.data.images.length == 0) {
+      var info = {
+        nickName: app.globalData.userMoreInfo.nickName,
+        contentText: that.data.content,
+        createDate: '2019 01/23',
+        contentImage: [],
+        friendNeedImg: false,
+        isLike: false,
+        comments: [],
+      };
 
-    app.globalData.myTrend.push(info);
+      console.log('=====' + info.contentImage);
 
-    wx.showToast({
-      title: '发表成功',
-      duration: 1000
-    })
+      app.globalData.myTrend.push(info);
+
+      wx.showToast({
+        title: '发表成功',
+        duration: 1000
+      })
+    }
+  
+
   }
 
 })

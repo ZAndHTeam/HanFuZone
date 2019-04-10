@@ -68,7 +68,7 @@
       wx:if = "{{ item.friendNeedImg }}"
     >
       <view class = 'content_image'>
-        <image src = '{{ item.contentImage }}' >
+        <image src = '{{ item.contentImage[0] }}' >
         </image>
       </view>
     </block>

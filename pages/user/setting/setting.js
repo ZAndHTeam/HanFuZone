@@ -56,5 +56,17 @@ Page({
       }
     })
     
+  },
+  saveForm(e) {
+    app.globalData.userMoreInfo.nickName = e.detail.value.nickName;
+    app.globalData.userMoreInfo.signature = e.detail.value.signature;
+    app.globalData.userMoreInfo.sex = e.detail.value.sex;
+    app.globalData.userMoreInfo.birthday = e.detail.value.birthday;
+    for (var i = 0; i < app.globalData.myTrend.length; i++) {
+      app.globalData.myTrend[i].nickName = app.globalData.userMoreInfo.nickName;
+    }
+    wx.showToast({
+      title: '保存成功',
+    })
   }
 })

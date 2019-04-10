@@ -6,6 +6,7 @@ App({
     for (var i = 0; i < this.globalData.myTrend.length; i++) {
       this.globalData.myTrend[i].nickName = this.globalData.userMoreInfo.nickName;
     }
+
   },
 
 
@@ -110,8 +111,8 @@ App({
     userMoreInfo: {
       nickName: '我叫王曼曼',
       signature: '这是一个懒人',
-      sex: '',
-      birthday: '2019 03/14',
+      sex: '女',
+      birthday: '2019/03/14',
       headerPath:'../image/defaultAvater.png'
     },
 

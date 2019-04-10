@@ -42,6 +42,8 @@ Page({
   },
   onShow(options) {
   
+    let { tabs } = this.data;
+
     var myTrend = app.globalData.friendTimes;
     if (tabs) {
       if (tabs == 1) {

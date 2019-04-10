@@ -1,4 +1,5 @@
 <!---头像-->
+<form bindsubmit="saveForm">
 <view class='uploadPictureView'>
 <image class="uploadPicBtn" src="{{userInfo.headerPath}}" mode="aspectFill" bindtap='uploadHeaderImage'>
  </image>
@@ -6,21 +7,21 @@
 
 <view class='nickNameView'>
   <view class='nickName'>昵称:
-      <input class='input' name='nickName' placeholder='请输入昵称' placeholder-class='nickNameInputCls' />
+      <input class='input' name='nickName' placeholder='请输入昵称' placeholder-class='nickNameInputCls' value='{{userInfo.nickName}}'/>
 
   </view>
   </view>
 
   <view class='nickNameView'>
   <view class='nickName'>个人签名:
-      <input class='input' name='nickName' placeholder='请输入个人签名' placeholder-class='nickNameInputCls' />
+      <input class='input' name='signature' placeholder='请输入个人签名' placeholder-class='nickNameInputCls' value="{{userInfo.signature}}"/>
 
   </view>
   </view>
 
   <view class='nickNameView'>
   <view class='nickName'>性别:
-      <input class='input' name='nickName' placeholder='请输入性别' placeholder-class='nickNameInputCls' />
+      <input class='input' name='sex' placeholder='请输入性别' placeholder-class='nickNameInputCls' value="{{userInfo.sex}}"/>
 
   </view>
   </view>
@@ -29,12 +30,14 @@
   <view class='nickName'>个人生日:
       <input 
        class='input'
-       name='nickName'
+       name='birthday'
        placeholder='请输入您的出生年月日' 
        placeholder-class='nickNameInputCls' 
-      >
-      {{ nickName }}
-      </input>
+       value='{{userInfo.birthday}}'
+      />
 
   </view>
   </view>
+
+    <button form-type='submit' class='save-btn' >保存</button>
+  </form>

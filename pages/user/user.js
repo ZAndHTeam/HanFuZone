@@ -50,6 +50,9 @@ Page({
   onShow(options) {
     var myTrend = app.globalData.myTrend;
     
+    for (var i = 0;i<myTrend.length;i++) {
+      console.log('+++++i=='+i + myTrend[i].contentImage);
+    }
     this.setData({
       nickName: app.globalData.userMoreInfo.nickName,
       // 动态数组

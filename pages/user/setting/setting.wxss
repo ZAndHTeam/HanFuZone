@@ -32,6 +32,17 @@ page {
   .input {
     flex-grow: 1;
   }
+  .save-btn {
+    display: flex;
+    /* align-items: center; */
+    margin-top: 20px;
+    font-size: 14px;
+    margin-left: 20px;
+    margin-right: 20px;
+    align-items: center;
+    justify-content: center;
+
+  }
   .nickNameInputCls {
 
   }
