@@ -204,3 +204,43 @@ page {
   height: 45rpx;
   font-size: 30rpx;
 }
+
+/* 评论框 */
+.commentBox {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 9000;
+  height: 100%;
+  background-color: rgba(104, 98, 98, 0.26);
+}
+.submitView {
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  height: 70px;
+  width: 100%;
+  background-color:lightgray;
+}
+.cf-content {
+  display: flex;
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-right: 10px;
+  height: 50px;
+  border-radius: 4px;
+  font-size: 32rpx;
+  background-color: white;
+}
+.cf-send {
+  display: flex;
+  font-size: 32rpx;
+  margin-top: 40px;
+  margin-right: 10px;
+  height: 20px;
+  width: 36px;
+  line-height: 20px;
+}
